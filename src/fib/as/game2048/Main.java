@@ -2,6 +2,7 @@ package fib.as.game2048;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,9 +17,23 @@ public class Main {
 		
 		Partida p1 = new Partida(1);
 		PrimaryKeyCasella key1 = new PrimaryKeyCasella(1, 1, p1);
-		Casella c1 = new Casella(key1, 2);
+		
+		Integer count_random = 0;
+		ArrayList<Integer> randCaselles = generateRandomsCaselles(4, 2);
 		List<Casella> caselles = new ArrayList<Casella>();
-		caselles.add(c1);
+		for(int i = 0; i < 4; i++) {
+			for(int j = 0; j < 4; j++) {
+				int valor = 0;
+				int numCasilla = ((j*4)+i)-1;
+				if(randCaselles.contains(numCasilla)) {
+					valor = randomInterval(1, 2)*2;
+				}
+				Casella c = new Casella(new PrimaryKeyCasella(i, j, p1), valor);
+				caselles.add(c);
+			}
+		}
+		
+		
 		p1.setCaselles(caselles);
 		
 		Session session=sessionFactory.openSession();
@@ -46,4 +61,38 @@ public class Main {
 		return sessionFactory;
 	}
 
+	/**
+	 * Metodo que genera para una matriz cuadra casillas aleatorias diferentes entre ellas y con 
+	 * una cierta cantidad.
+	 * pre: cantidad < size*2
+	 * @param sizeMat
+	 * @param cuantitat cantidad de casillas a crear
+	 * @return {@link ArrayList}
+	 */
+	public static ArrayList<Integer> generateRandomsCaselles(Integer sizeMat, Integer cuantitat) {
+		Integer maxim = (sizeMat*2)-1;
+		Integer minim = 0;
+		ArrayList<Integer> caselles = new ArrayList<Integer>();
+		
+		int i = 0;
+		while(i < cuantitat) {
+			Integer randomNum = randomInterval(minim,maxim); 
+			if(!caselles.contains(randomNum)) {
+				caselles.add(randomNum);
+				i++;
+			}
+		}
+		
+		return caselles;
+	}
+	
+	/**
+	 * Metodo que genera un numero random indicando un rango
+	 * @param min
+	 * @param max
+	 * @return
+	 */
+	public static Integer randomInterval(Integer min, Integer max) {
+		return (min + (int)(Math.random()*max));
+	}
 }

@@ -18,7 +18,6 @@ public class PrimaryKeyCasella  implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="idPartida")
-//	@PrimaryKeyJoinColumn
 	private Partida partida;
 
 	public PrimaryKeyCasella() {
