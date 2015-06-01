@@ -31,6 +31,10 @@ public class Casella implements Serializable{
 		this.key = key;
 		this.numero = numero;
 	}
+	
+	public Casella(Integer numeroFila, Integer numeroColumna, Integer numero) {
+		
+	}
 
 	public PrimaryKeyCasella getKey() {
 		return key;
@@ -48,5 +52,35 @@ public class Casella implements Serializable{
 		this.numero = numero;
 	}
 	
+	public void assignarPartida(Partida partida) {
+		
+	}
 	
+	public Integer fusio(Casella casella) {
+		return null;
+	}
+	
+	public Integer getNumeroFila() {
+		return null;
+	}
+	
+	public Integer getNumeroColumna() {
+		return null;
+	}
+	
+	public Boolean esBuida() {
+		return null;
+	}
+	
+	public void copia(Casella casella) {
+		
+	}
+	
+	public Integer duplica() {
+		return null;
+	}
+	
+	public void buida() {
+		
+	}
 }
