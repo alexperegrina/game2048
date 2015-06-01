@@ -1,6 +1,7 @@
 package fib.as.game2048.dominio;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,11 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.IndexColumn;
 
+/**
+ * 
+ * @author Alex Peregrina Cabrera
+ *
+ */
 @Entity
 @Table(name="partida")
 public class Partida implements Serializable{
@@ -43,6 +49,10 @@ public class Partida implements Serializable{
 		this.estaAcabada = false;
 		this.estaGuanyada = false;
 		this.puntuacio = 0;
+	}
+	
+	public Partida(Jugador jugador, Integer idPartida) {
+		
 	}
 
 	public Integer getIdPartida() {
@@ -85,5 +95,55 @@ public class Partida implements Serializable{
 		this.caselles = caselles;
 	}
 	
+	public ParOrdenado<String, Integer> getRanking() {
+		return null;
+	}
 	
+	public ArrayList<Casella> crearTaulell() {
+		return null;
+	}
+	
+	public void sumaPuntuacio(Integer punts) {
+		
+	}
+	
+	public Boolean comprovarPartidaPerduda() {
+		return null;
+	}
+	
+	public Boolean comprovarPartidaGuanyada() {
+		return null;
+	}
+	
+	public void preparaSeguentMoviment() {
+		
+	}
+	
+	public ArrayList<Casella> getCasellesValor() {
+		return null;
+	}
+	
+	public ArrayList<Casella> obteFila(Boolean ordre, Integer fila) {
+		return null;
+	}
+	
+	public ArrayList<Casella> obteColumna(Boolean ordre, Integer col) {
+		return null;
+	}
+	
+	public Boolean potMoure(String mov) {
+		return null;
+	}
+	
+	public ArrayList<Casella> obteLinea(String mov) {
+		return null;
+	}
+	
+	public ArrayList<Casella> obteCasellesLliures() {
+		return null;
+	}
+	
+	public ArrayList<ArrayList<Casella>> ferMoviment(String tipusMov) {
+		return null;
+	}
 }

@@ -8,6 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author Alex Peregrina Cabrera
+ *
+ */
 @Entity
 @Table(name="casella")
 public class Casella implements Serializable{
