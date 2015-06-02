@@ -33,7 +33,15 @@ public class Casella implements Serializable{
 	}
 	
 	public Casella(Integer numeroFila, Integer numeroColumna, Integer numero) {
-		
+		this.numero = numero;
+		this.key = new PrimaryKeyCasella(numeroFila, numeroColumna);
+	}
+	
+	//CONTRUCTURA QUE SI NO SE UTILIZA LA PODEMOS QUITAR YA QUE
+	// NO HA SIDO DEFINIDA EN LA ESPECIFICACIÓN
+	public Casella(Integer numeroFila, Integer numeroColumna, Integer numero, Partida partida) {
+		this.numero = numero;
+		this.key = new PrimaryKeyCasella(numeroFila, numeroColumna, partida);
 	}
 
 	public PrimaryKeyCasella getKey() {
@@ -53,34 +61,46 @@ public class Casella implements Serializable{
 	}
 	
 	public void assignarPartida(Partida partida) {
-		
+		this.key.setPartida(partida);
 	}
 	
+	//ALEX: METODO A COMPROVAR A CONCIENCA PORQUE CREO QUE NO HACE LO QUE ESPERAMOS
 	public Integer fusio(Casella casella) {
-		return null;
+		
+		Integer punts = 0;
+		if(casella.esBuida()) {
+			casella.copia(this);
+		}
+		if(!casella.esBuida() && this.numero == casella.getNumero()) {
+			punts = casella.duplica();
+			this.buida();
+		}
+		
+		return punts;
 	}
 	
 	public Integer getNumeroFila() {
-		return null;
+		return this.key.getNumeroFila();
 	}
 	
 	public Integer getNumeroColumna() {
-		return null;
+		return this.key.getNumeroColumna();
 	}
 	
 	public Boolean esBuida() {
-		return null;
+		return this.numero == null;
 	}
 	
 	public void copia(Casella casella) {
-		
+		this.numero = casella.getNumero();
 	}
 	
 	public Integer duplica() {
-		return null;
+		this.numero *= 2;
+		return this.numero;
 	}
 	
 	public void buida() {
-		
+		numero = null;
 	}
 }
