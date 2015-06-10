@@ -44,11 +44,11 @@ public class Casella implements Serializable{
 		this.key = new PrimaryKeyCasella(numeroFila, numeroColumna, partida);
 	}
 
-	public PrimaryKeyCasella getKey() {
+	private PrimaryKeyCasella getKey() {
 		return key;
 	}
 
-	public void setKey(PrimaryKeyCasella key) {
+	private void setKey(PrimaryKeyCasella key) {
 		this.key = key;
 	}
 

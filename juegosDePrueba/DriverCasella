@@ -1,0 +1,17 @@
+1_ Test de la constructora que se utiliza en el juego (inicializamos, mostramos(numero,fila,columna)):
+	3 9 13 14
+2_ Test de la asignacion de partida
+ 	3 11 
+3_ Test de setNumero
+	1 10 1 9
+4_ Test de la función esBuida ( inicializamos con el constructor vacio, consultamos si esta vacio, asigna
+	1 15 10 1 15
+5_ Test de la función buida
+	3 15 18 15
+6_ Test de la función duplica
+	3 9 17 9
+7_ Test de la función copia
+	3 7 9 19 16 9
+8_ Test de la función fusio
+	3 7 9 19 16 12 19
+	
