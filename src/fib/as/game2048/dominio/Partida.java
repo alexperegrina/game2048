@@ -146,4 +146,9 @@ public class Partida implements Serializable{
 	public ArrayList<ArrayList<Casella>> ferMoviment(String tipusMov) {
 		return null;
 	}
+	
+	@Override
+	public String toString() {
+		return "Id: " + idPartida + " -- Puntuacion: " + puntuacio;
+	}
 }

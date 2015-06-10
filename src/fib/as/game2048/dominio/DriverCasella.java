@@ -19,40 +19,10 @@ public class DriverCasella {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		boolean salir = false;
 //        boolean lista = true;
-        while (!salir) {
-        	System.out.println("Escoge una opción:");
-            
-        	System.out.println("\t 1) C1 -- Casella()");
-            System.out.println("\t 2) C1 -- Casella(PrimaryKeyCasella key, Integer numero) -- PrimaryKeyCasella(1, 1, partida)");
-            System.out.println("\t 3) C1 -- Casella(Integer numeroFila, Integer numeroColumna, Integer numero) -- Casella(1, 1, 1)");
-            System.out.println("\t 4) C1 -- Casella(Integer numeroFila, Integer numeroColumna, Integer numero, Partida partida) -- Casella(1, 1, 1, partida)");
-            System.out.println("\t 5) C2 -- Casella()");
-            System.out.println("\t 6) C2 -- Casella(PrimaryKeyCasella key, Integer numero) -- PrimaryKeyCasella(2, 2, partida)");
-            System.out.println("\t 7) C2 -- Casella(Integer numeroFila, Integer numeroColumna, Integer numero) -- Casella(2, 2, 2)");
-            System.out.println("\t 8) C2 -- Casella(Integer numeroFila, Integer numeroColumna, Integer numero, Partida partida) -- Casella(2, 2, 2, partida)");
-
-        	
-//        	System.out.println("\t 1) Casella()");
-//            System.out.println("\t 2) Casella(PrimaryKeyCasella key, Integer numero)");
-//            System.out.println("\t 3) Casella(Integer numeroFila, Integer numeroColumna, Integer numero)");
-//            System.out.println("\t 4) Casella(Integer numeroFila, Integer numeroColumna, Integer numero, Partida partida) -- partida predefinida");
-            
-            System.out.println("\t 9) (casella1) - getNumero()");
-            System.out.println("\t 10) (casella1) - setNumero(Integer numero)");
-            System.out.println("\t 11) (casella1) - assignarPartida(Partida partida)");
-            System.out.println("\t 12) (casella1) - fusio(Casella casella) (casella2)");
-            System.out.println("\t 13) (casella1) - getNumeroFila()");
-            System.out.println("\t 14) (casella1) - getNumeroColumna()");
-            System.out.println("\t 15) (casella1) - esBuida()");
-            System.out.println("\t 16) (casella1) - copia(Casella casella) (casella2)");
-            System.out.println("\t 17) (casella1) - duplica()");
-            System.out.println("\t 18) (casella1) - buida()");
-            
-            System.out.println("\t 19) (casella1) - getNumero()");
-            
-            System.out.println("\t -1) Salir");
-            System.out.println("\n");
-            
+        
+    	mostrarMenu();
+    	
+    	while (!salir) {
             String linea;
             String palabras[];
             String opcion;
@@ -61,7 +31,7 @@ public class DriverCasella {
             palabras = linea.split(" ");
             opcion = palabras[0];
             
-            System.out.println("Opción " + opcion + " seleccionada.");
+//            System.out.println("Opción " + opcion + " seleccionada.");
             switch (opcion) {
                 case "1":
                 	casella1 = new Casella();
@@ -124,11 +94,49 @@ public class DriverCasella {
                 	System.out.println("Numero: " + Integer.toString(casella2.getNumero()));
                     break;
                 
-                case "-1":
+                case "-2":
                 	salir = true;
                     break;
+            	default:
+            		mostrarMenu();
             }
         }
         System.out.println("Fin del driver");
+	}
+	
+	public static void mostrarMenu() {
+		System.out.println("Escoge una opción:");
+        
+    	System.out.println("\t 1) C1 -- Casella()");
+        System.out.println("\t 2) C1 -- Casella(PrimaryKeyCasella key, Integer numero) -- PrimaryKeyCasella(1, 1, partida)");
+        System.out.println("\t 3) C1 -- Casella(Integer numeroFila, Integer numeroColumna, Integer numero) -- Casella(1, 1, 1)");
+        System.out.println("\t 4) C1 -- Casella(Integer numeroFila, Integer numeroColumna, Integer numero, Partida partida) -- Casella(1, 1, 1, partida)");
+        System.out.println("\t 5) C2 -- Casella()");
+        System.out.println("\t 6) C2 -- Casella(PrimaryKeyCasella key, Integer numero) -- PrimaryKeyCasella(2, 2, partida)");
+        System.out.println("\t 7) C2 -- Casella(Integer numeroFila, Integer numeroColumna, Integer numero) -- Casella(2, 2, 2)");
+        System.out.println("\t 8) C2 -- Casella(Integer numeroFila, Integer numeroColumna, Integer numero, Partida partida) -- Casella(2, 2, 2, partida)");
+
+    	
+//    	System.out.println("\t 1) Casella()");
+//        System.out.println("\t 2) Casella(PrimaryKeyCasella key, Integer numero)");
+//        System.out.println("\t 3) Casella(Integer numeroFila, Integer numeroColumna, Integer numero)");
+//        System.out.println("\t 4) Casella(Integer numeroFila, Integer numeroColumna, Integer numero, Partida partida) -- partida predefinida");
+        
+        System.out.println("\t 9) (casella1) - getNumero()");
+        System.out.println("\t 10) (casella1) - setNumero(Integer numero)");
+        System.out.println("\t 11) (casella1) - assignarPartida(Partida partida)");
+        System.out.println("\t 12) (casella1) - fusio(Casella casella) (casella2)");
+        System.out.println("\t 13) (casella1) - getNumeroFila()");
+        System.out.println("\t 14) (casella1) - getNumeroColumna()");
+        System.out.println("\t 15) (casella1) - esBuida()");
+        System.out.println("\t 16) (casella1) - copia(Casella casella) (casella2)");
+        System.out.println("\t 17) (casella1) - duplica()");
+        System.out.println("\t 18) (casella1) - buida()");
+        
+        System.out.println("\t 19) (casella1) - getNumero()");
+        
+        System.out.println("\t -1) Mostrar Menu");
+        System.out.println("\t -2) Salir");
+        System.out.println(" ");
 	}
 }
