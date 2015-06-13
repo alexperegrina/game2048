@@ -103,4 +103,9 @@ public class Casella implements Serializable{
 	public void buida() {
 		numero = null;
 	}
+	
+	@Override
+	public String toString() {
+		return "fila: " + this.getNumeroFila() + " columna: " + this.getNumeroColumna() + " numero: " + this.getNumero();
+	}
 }

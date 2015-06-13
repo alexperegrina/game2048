@@ -52,9 +52,16 @@ public class Partida implements Serializable{
 	@JoinColumn(name="jugador")
 	private Jugador jugador;
 	
+	/**
+	 * Constructora vacia
+	 */
 	public Partida() {
 	}
 
+	/**
+	 * Constructora pasandole idPartida
+	 * @param idPartida Integer
+	 */
 	public Partida(Integer idPartida) {
 		this.idPartida = idPartida;
 		this.estaAcabada = false;
@@ -62,6 +69,12 @@ public class Partida implements Serializable{
 		this.puntuacio = 0;
 	}
 	
+	/**
+	 * Constructora de Partida donde se crea un tablero de 4X4 casillas, 
+	 * ademas se le asigna a la partida el jugador pasado como parametro
+	 * @param jugador Jugador
+	 * @param idPartida Integer
+	 */
 	public Partida(Jugador jugador, Integer idPartida) {
 		this.jugador = jugador;
 		this.idPartida = idPartida;
@@ -73,50 +86,91 @@ public class Partida implements Serializable{
 		
 	}
 
+	/**
+	 * Consultamos el id de la partida
+	 * @return
+	 */
 	public Integer getIdPartida() {
 		return idPartida;
 	}
 
+	/**
+	 * Modificamos el id de la partida
+	 * @param idPartida Integer
+	 */
 	public void setIdPartida(Integer idPartida) {
 		this.idPartida = idPartida;
 	}
 
+	/**
+	 * Consultamos la variable estaAcabada
+	 * @return true si esta acabada, false si no
+	 */
 	public Boolean getEstaAcabada() {
 		return estaAcabada;
 	}
 
+	/**
+	 * Modificamos la variable estaAcabada
+	 * @param estaAcabada Boolean
+	 */
 	public void setEstaAcabada(Boolean estaAcabada) {
 		this.estaAcabada = estaAcabada;
 	}
 
+	/**
+	 * Consultamos la variable estaGuanyada
+	 * @return true si esta guanyada, false si no
+	 */
 	public Boolean getEstaGuanyada() {
 		return estaGuanyada;
 	}
 
+	/**
+	 * Modificamos la variable estaGuanyada
+	 * @param estaGuanyada Boolean
+	 */
 	public void setEstaGuanyada(Boolean estaGuanyada) {
 		this.estaGuanyada = estaGuanyada;
 	}
 
+	/**
+	 * Consultamos la puntuación de la partida
+	 * @return Integer
+	 */
 	public Integer getPuntuacio() {
 		return puntuacio;
 	}
 
+	/**
+	 * Modificamos la puntuación de la partida
+	 * @param puntuacio Integer
+	 */
 	public void setPuntuacio(Integer puntuacio) {
 		this.puntuacio = puntuacio;
 	}
 
+	/**
+	 * Consultamos las casellas de la partida
+	 * @return ArrayList<Casella>
+	 */
 	public ArrayList<Casella> getCaselles() {
 		return caselles;
 	}
 
+	/**
+	 * Modificamos el vector de casillas de la partida
+	 * @param caselles ArrayList<Casella>
+	 */
 	public void setCaselles(ArrayList<Casella> caselles) {
 		this.caselles = caselles;
 	}
 	
-	public ParOrdenado<String, Integer> getRanking() { // este metodo desaparecera creo
-		return null;
-	}
-	
+	/**
+	 * Metodo para crear las 16 casillas que forman la partida, ademas dos de las casillas tiene un valor(2,4) las demas
+	 * casillas tiene valor null.
+	 * @return ArrayList<Casella> son las casillas que se les ha asignado valor.
+	 */
 	public ArrayList<Casella> crearTaulell() {
 		Integer count = 0;
 		Integer valor = null;
@@ -131,12 +185,9 @@ public class Partida implements Serializable{
 		
 		for(int i = 0; i < 4; i++) {
 			for(int j = 0; j < 4; j++) {
-				
+				valor = null;
 				if(count == c1 || count == c2) {
-					valor = Util.randomInterval(2, 4);
-					do {
-						valor = Util.randomInterval(2, 4);
-					} while (valor != 3);
+					valor = Util.randomInterval(1, 2) * 2;
 				}
 				
 				casella = new Casella(i, j, valor, this);
@@ -145,6 +196,7 @@ public class Partida implements Serializable{
 				if(count == c1 || count == c2) {
 					casellesValor.add(casella);
 				}
+				count++;
 			}
 		}
 		
@@ -153,25 +205,41 @@ public class Partida implements Serializable{
 		return casellesValor;
 	}
 	
+	/**
+	 * Metodo que incrementa la puntuación
+	 * @param punts Integer
+	 */
 	public void sumaPuntuacio(Integer punts) {
 		this.puntuacio += punts;
 	}
 	
+	/**
+	 * Metodo que comprueva si la partida esta perdia, no puede realizar ningun movimiento.
+	 * @return true si ha perdido la partida, false no ha perdido la partida
+	 */
 	public Boolean comprovarPartidaPerduda() {
 		return !(this.potMoure(MOVIMENT_AMUNT) || this.potMoure(MOVIMENT_AVALL) 
 				|| this.potMoure(MOVIMENT_DRETA) || this.potMoure(MOVIMENT_ESQUERRA));
 	}
 	
+	/**
+	 * Metodo que comprueva si la partida esta ganada, si alguna casilla tiene el valor 2048
+	 * @return true si ha ganado la partida, false no ha ganado la partida.
+	 */
 	public Boolean comprovarPartidaGuanyada() {
 		Boolean guanyada = false;
 		for(int i = 0; i < this.caselles.size() && !guanyada; i++) {
-			if(this.caselles.get(i).getNumero() == 2048) {
+			if(this.caselles.get(i).getNumero() != null &&
+					this.caselles.get(i).getNumero() == 2048) {
 				guanyada = true;
 			}
 		} 
 		return guanyada;
 	}
 	
+	/**
+	 * Metodo para generar una nueva casilla con valor(2,4) eligiendo del conjunto de casillas que no tiene valor.
+	 */
 	public void preparaSeguentMoviment() {
 		ArrayList<Casella> casellesLliures = this.getCasellesLliures();
 		Integer nova = Util.randomInterval(0, casellesLliures.size()-1);
@@ -186,6 +254,10 @@ public class Partida implements Serializable{
 		}
 	}
 	
+	/**
+	 * Metodo para consultar las casillas que no tiene ningun valor asignado.
+	 * @return ArrayList<Casella> 
+	 */
 	public ArrayList<Casella> getCasellesLliures() {
 		ArrayList<Casella> casellesLliures = new ArrayList<Casella>();
 		for (Casella casella : this.caselles) {
@@ -196,6 +268,10 @@ public class Partida implements Serializable{
 		return casellesLliures;
 	}
 	
+	/**
+	 * Metodo para consultar las casillas que tiene un valor asignado.
+	 * @return ArrayList<Casella> 
+	 */
 	public ArrayList<Casella> getCasellesValor() {
 		ArrayList<Casella> casellesValor = new ArrayList<Casella>();
 		for (Casella casella : this.caselles) {
@@ -206,6 +282,12 @@ public class Partida implements Serializable{
 		return casellesValor;
 	}
 	
+	/**
+	 * 
+	 * @param ordre
+	 * @param fila
+	 * @return
+	 */
 	public ArrayList<Casella> obteFila(Boolean ordre, Integer fila) {
 		ArrayList<Casella> filaCaselles = new ArrayList<Casella>();
 		for(int i = 0; i < caselles.size(); i++) {
@@ -262,14 +344,32 @@ public class Partida implements Serializable{
 	}
 	
 	public Boolean potMoure(String mov) {
+		System.out.println("Mov: " + mov);
 		Boolean potMoute = false;
 		Boolean buidaFila = false;
 		Integer numFila = null;
 		ArrayList<ArrayList<Casella>> lineas = obteLinies(mov);
+		
+		
+//		// DEBUG
+//		for(int i = 0; i < lineas.size(); i++) {
+//			for(int j = 0; j < lineas.get(i).size(); j++) {
+//				System.out.println(lineas.get(i).get(j));
+//			}
+//		}
+//		// DEBUG		
+//		System.out.println("---------");
+		
 		for(int i = 0; i < 4 && !potMoute; i++) {
+			// DEBUG
+//			System.out.println("I: " +Integer.toString(i));
+			
 			buidaFila = false;
 			numFila = null;
-			for(int j = 3; j >= 0 && !potMoute; j++) {
+			for(int j = 3; j >= 0 && !potMoute; j--) {
+				// DEBUG
+//				System.out.println("J: " +Integer.toString(j));
+				
 				if(lineas.get(i).get(j).esBuida()) {
 					buidaFila = true;
 				}
@@ -291,6 +391,11 @@ public class Partida implements Serializable{
 		return potMoute;
 	}
 	
+	/**
+	 * Metodo para obtener la matriz de casella distribuido segun el movimiento.
+	 * @param mov
+	 * @return
+	 */
 	public ArrayList<ArrayList<Casella>> obteLinies(String mov) {
 		Boolean ordre = true;
 		ArrayList<ArrayList<Casella>> linies = new ArrayList<ArrayList<Casella>>();
@@ -307,12 +412,13 @@ public class Partida implements Serializable{
 			}
 		}
 		
+		System.out.println("Size linies: "+Integer.toString(linies.size()));
 		return linies;
 	}
 	
-	public ArrayList<ArrayList<Casella>> ferMoviment(String tipusMov) {
-		return null;
-	}
+//	public ArrayList<ArrayList<Casella>> ferMoviment(String tipusMov) {
+//		return null;
+//	}
 	
 	@Override
 	public String toString() {
