@@ -283,10 +283,10 @@ public class Partida implements Serializable{
 	}
 	
 	/**
-	 * 
-	 * @param ordre
-	 * @param fila
-	 * @return
+	 * Metodo para consultar la fila indicada en un orden indicado.
+	 * @param ordre, true --> orden original de la fila, false --> inverso de la fila
+	 * @param fila, valor [0..3]
+	 * @return ArrayList<Casella>
 	 */
 	public ArrayList<Casella> obteFila(Boolean ordre, Integer fila) {
 		ArrayList<Casella> filaCaselles = new ArrayList<Casella>();
@@ -296,9 +296,6 @@ public class Partida implements Serializable{
 				filaCaselles.add(caselles.get(i));
 			}
 			
-			/**
-			 * HAY QUE MIRAR BIEN EL TEMA DEL COMPARATOR QUE LO HE HECHO SIN INTERNET *********************************
-			 */
 			filaCaselles.sort(new Comparator<Casella>() {
 				@Override
 				public int compare(Casella c1, Casella c2) {
@@ -315,6 +312,12 @@ public class Partida implements Serializable{
 		return filaCaselles;
 	}
 	
+	/**
+	 * Metodo para consultar la columna indicada en un orden indicado.
+	 * @param ordre, true --> orden original de la fila, false --> inverso de la fila
+	 * @param col, valor [0..3]
+	 * @return ArrayList<Casella>
+	 */
 	public ArrayList<Casella> obteColumna(Boolean ordre, Integer col) {
 		
 		ArrayList<Casella> colCaselles = new ArrayList<Casella>();
@@ -324,9 +327,6 @@ public class Partida implements Serializable{
 				colCaselles.add(caselles.get(i));
 			}
 			
-			/**
-			 * HAY QUE MIRAR BIEN EL TEMA DEL COMPARATOR QUE LO HE HECHO SIN INTERNET *********************************
-			 */
 			colCaselles.sort(new Comparator<Casella>() {
 				@Override
 				public int compare(Casella c1, Casella c2) {
@@ -343,6 +343,12 @@ public class Partida implements Serializable{
 		return colCaselles;
 	}
 	
+	/**
+	 * Metodo para consultar si se puede realizar el movimiento indicado. tiene en cuenta si hay espacios en blanco o
+	 * si se puede fusionar con otra casill.
+	 * @param mov, String (amunt,avall,dreta,esquerra)
+	 * @return Boolean, true si puede hacer el movimiento, false no puede hacer el movimiento.
+	 */
 	public Boolean potMoure(String mov) {
 		System.out.println("Mov: " + mov);
 		Boolean potMoute = false;
@@ -393,8 +399,8 @@ public class Partida implements Serializable{
 	
 	/**
 	 * Metodo para obtener la matriz de casella distribuido segun el movimiento.
-	 * @param mov
-	 * @return
+	 * @param mov, String (amunt,avall,dreta,esquerra)
+	 * @return ArrayList<ArrayList<Casella>>
 	 */
 	public ArrayList<ArrayList<Casella>> obteLinies(String mov) {
 		Boolean ordre = true;
@@ -415,11 +421,7 @@ public class Partida implements Serializable{
 		System.out.println("Size linies: "+Integer.toString(linies.size()));
 		return linies;
 	}
-	
-//	public ArrayList<ArrayList<Casella>> ferMoviment(String tipusMov) {
-//		return null;
-//	}
-	
+
 	@Override
 	public String toString() {
 		return "Id: " + idPartida + " -- Puntuacion: " + puntuacio;
