@@ -87,23 +87,6 @@ public abstract class Util {
 	
 	public static void printCasellesToMatriz(ArrayList<ArrayList<Casella>> caselles) {
 		
-		
-		
-//		//Inicializamos el la matriz con los valores nulos
-//		ArrayList<ArrayList<String>> tablero = new ArrayList<ArrayList<String>>();
-//		for(int i = 0; i < 4; i++) {
-//			ArrayList<String> fila = new ArrayList<String>();
-//			for(int j = 0; j < 4; j++) {
-//				fila.add(CARACTER_NULO);
-//			}
-//			tablero.add(fila);
-//		}
-		
-//		for (Casella casella : caselles) {
-//			if(!casella.esBuida()) {				
-//				tablero.get(casella.getNumeroFila()).set(casella.getNumeroColumna(), Integer.toString(casella.getNumero()));
-//			}
-//		}
 		System.out.println("\n -----Tablero-----\n");
 		for(int i = 0; i < 4; i++) {
 			for(int j = 0; j < 4; j++) {
