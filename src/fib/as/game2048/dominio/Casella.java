@@ -116,10 +116,17 @@ public class Casella implements Serializable{
 		Integer punts = 0;
 		if(casella.esBuida()) {
 			casella.copia(this);
-		}
-		if(!casella.esBuida() && this.numero == casella.getNumero()) {
-			punts = casella.duplica();
 			this.buida();
+		}
+		else {			
+//			System.out.print("num1: " + this.numero + " ");
+//			System.out.print("num2: " + casella.getNumero() + " ");
+//			System.out.print("==: " + this.numero == casella.getNumero() + " ");
+//			System.out.println("");
+			if(!casella.esBuida() && this.numero == casella.getNumero()) {
+				punts = casella.duplica();
+				this.buida();
+			}
 		}
 		
 		return punts;

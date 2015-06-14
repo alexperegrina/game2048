@@ -350,7 +350,7 @@ public class Partida implements Serializable{
 	 * @return Boolean, true si puede hacer el movimiento, false no puede hacer el movimiento.
 	 */
 	public Boolean potMoure(String mov) {
-		System.out.println("Mov: " + mov);
+//		System.out.println("Mov: " + mov);
 		Boolean potMoute = false;
 		Boolean buidaFila = false;
 		Integer numFila = null;
@@ -403,10 +403,10 @@ public class Partida implements Serializable{
 	 * @return ArrayList<ArrayList<Casella>>
 	 */
 	public ArrayList<ArrayList<Casella>> obteLinies(String mov) {
-		Boolean ordre = true;
+		Boolean ordre = false;
 		ArrayList<ArrayList<Casella>> linies = new ArrayList<ArrayList<Casella>>();
 		if(mov == MOVIMENT_AMUNT || mov == MOVIMENT_ESQUERRA) {
-			ordre = false;
+			ordre = true;
 		}
 		
 		for(int i = 0; i < 4; i++) {
@@ -418,7 +418,7 @@ public class Partida implements Serializable{
 			}
 		}
 		
-		System.out.println("Size linies: "+Integer.toString(linies.size()));
+//		System.out.println("Size linies: "+Integer.toString(linies.size()));
 		return linies;
 	}
 
