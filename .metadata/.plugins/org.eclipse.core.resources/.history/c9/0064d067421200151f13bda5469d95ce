@@ -1,0 +1,37 @@
+package fib.as.game2048;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CtrlCasUsJugarPartida {
+	
+	private Partida P;
+	
+	private ArrayList<Casella> caselles;
+	
+	public void crearPartida(Jugador jugador)
+	{
+		Joc2048 joc = new Joc2048();
+		Integer id = joc.getIdPartida();
+		Integer id1 = joc.incrementarId();
+		P = new Partida(jugador,id);
+		caselles = P.getCaselles();
+		EstrategiaPuntuacio E;
+		joc.assignarEstrategia(E);
+		jugador.assignarPartidaActual(P);
+		Integer points = jugador.getMillorPuntuacio();
+		//No entiendo nada
+	}
+	
+	public ArrayList obteFila(boolean ordre, Integer fila)
+	{
+		ArrayList<Casella>filaCaselles = new ArrayList<Casella>();
+		Integer i = 0;
+		while(i<caselles.size())
+		{
+			Integer n = caselles.get(i).getNumeroFila();
+			if(n == fila) filaCaselles.add(caselles.get(i));
+			++i;
+		}
+	}
+}
