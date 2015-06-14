@@ -118,12 +118,8 @@ public class Casella implements Serializable{
 			casella.copia(this);
 			this.buida();
 		}
-		else {			
-//			System.out.print("num1: " + this.numero + " ");
-//			System.out.print("num2: " + casella.getNumero() + " ");
-//			System.out.print("==: " + this.numero == casella.getNumero() + " ");
-//			System.out.println("");
-			if(!casella.esBuida() && this.numero == casella.getNumero()) {
+		else {	
+			if(!casella.esBuida() && this.numero.equals(casella.getNumero())) {
 				punts = casella.duplica();
 				this.buida();
 			}

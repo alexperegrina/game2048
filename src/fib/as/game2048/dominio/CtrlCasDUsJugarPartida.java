@@ -158,6 +158,7 @@ public class CtrlCasDUsJugarPartida {
 	}
 	
 	public static void main(String[] args) throws IOException {
+		
 		ferAutentificacio("alex", "123");
 		crearPartida();
 		
@@ -174,7 +175,6 @@ public class CtrlCasDUsJugarPartida {
     	
         while(!partida.getEstaAcabada()) {
         	Util.printCasellesToVector(partida.getCaselles());
-        	
         	
         	linea = br.readLine();
             palabras = linea.split(" ");
@@ -196,7 +196,6 @@ public class CtrlCasDUsJugarPartida {
 			}
         	
         }
+		
 	}
- 
-	
 }
