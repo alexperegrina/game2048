@@ -62,8 +62,4 @@ public class Casella implements Serializable{
 		return key.getNumeroColumna();
 	}
 	
-	public Boolean esBuida() {
-		return this.numero == null;
-	}
-	
 }

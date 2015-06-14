@@ -19,21 +19,12 @@ public class Casella implements Serializable{
 	@Column(name="numero")
 	private Integer numero;
 	
-	private Partida P;
-	
 	public Casella() {
 	}
 
 	public Casella(PrimaryKeyCasella key, Integer numero) {
 		this.key = key;
 		this.numero = numero;
-	}
-	
-	public Casella(Integer i, Integer j, Integer numero, Partida P) {
-		this.key.setNumeroFila(i);
-		this.key.setNumeroColumna(j);
-		this.numero = numero;
-		this.P = P;
 	}
 
 	public PrimaryKeyCasella getKey() {
@@ -60,10 +51,6 @@ public class Casella implements Serializable{
 	public Integer getNumeroColumna()
 	{
 		return key.getNumeroColumna();
-	}
-	
-	public Boolean esBuida() {
-		return this.numero == null;
 	}
 	
 }

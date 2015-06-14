@@ -18,7 +18,7 @@ public class CtrlCasUsJugarPartida {
 		Integer id = joc.getIdPartida();
 		Integer id1 = joc.incrementarId();
 		P = new Partida(jugador,id);
-		caselles = P.getCaselles(); P.
+		caselles = P.getCaselles();
 		EstrategiaPuntuacio E;
 		joc.assignarEstrategia(E);
 		jugador.assignarPartidaActual(P);
@@ -101,7 +101,7 @@ public class CtrlCasUsJugarPartida {
 		}
 	}
 	
-	public ArrayList obteLinies(String mov)
+	public void obteLinies(String mov)
 	{
 		boolean ordre = true;
 		ArrayList<Casella> linies = new ArrayList<Casella>();
@@ -109,38 +109,10 @@ public class CtrlCasUsJugarPartida {
 		Integer i=0;
 		while(i<4)
 		{
-			ArrayList<Casella> t = new ArrayList<Casella>();
-			if(mov == "amunt" || mov == "avall") t = P.obteCol(ordre, i);
-			if(mov == "dreta" || mov == "esquerra") t = P.obteFila(ordre, i);
-			++i;
-			linies.addAll(t);
-		}
-		return linies;
-	}
-	
-	public ArrayList getCasellesValor()
-	{
-		ArrayList<Casella> conj = new ArrayList<Casella>();
-		ArrayList<Casella> C = P.getCaselles();
-		Integer i = 0;
-		while(i<C.size())
-		{
-			if(!C.get(i).esBuida()) conj.add(C.get(i));
+			if(mov == "amunt" || mov == "avall") P.obteCo ;
 			++i;
 		}
-		return conj;
-	}
-	
-	public boolean comprovarPartidaGuanyada()
-	{
-		boolean guanyada = false;
-		Integer i = 0;
-		while(i<caselles.size() && !guanyada)
-		{
-			if(caselles.get(i).getNumero()==2048) guanyada = true;
-			++i;
-		}
-		return guanyada;
+		
 	}
 	
 }

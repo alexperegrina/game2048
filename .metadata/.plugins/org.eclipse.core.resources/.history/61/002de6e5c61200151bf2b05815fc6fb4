@@ -135,12 +135,10 @@ public class CtrlCasUsJugarPartida {
 	{
 		boolean guanyada = false;
 		Integer i = 0;
-		while(i<caselles.size() && !guanyada)
+		while(i<caselles.size())
 		{
-			if(caselles.get(i).getNumero()==2048) guanyada = true;
-			++i;
+			
 		}
-		return guanyada;
+		
 	}
-	
 }

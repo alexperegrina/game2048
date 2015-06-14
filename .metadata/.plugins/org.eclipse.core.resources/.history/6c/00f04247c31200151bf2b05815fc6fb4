@@ -18,7 +18,7 @@ public class CtrlCasUsJugarPartida {
 		Integer id = joc.getIdPartida();
 		Integer id1 = joc.incrementarId();
 		P = new Partida(jugador,id);
-		caselles = P.getCaselles(); P.
+		caselles = P.getCaselles();
 		EstrategiaPuntuacio E;
 		joc.assignarEstrategia(E);
 		jugador.assignarPartidaActual(P);
@@ -26,7 +26,71 @@ public class CtrlCasUsJugarPartida {
 		//No entiendo nada
 	}
 	
+	public class ordenaporfila implements Comparator<Casella>
+	{
+		@Override
+		public int compare(Casella casella1, Casella casella2)
+		{
+			return new Integer(casella1.getNumeroFila().compareTo(new Integer(casella2.getNumeroFila())));
+		}
+	}
 	
+	public class ordenaporfilainversa implements Comparator<Casella>
+	{
+		@Override
+		public int compare(Casella casella1, Casella casella2)
+		{
+			return new Integer(casella2.getNumeroFila().compareTo(new Integer(casella1.getNumeroFila())));
+		}
+	}
+	
+	public class ordenaporcolumna implements Comparator<Casella>
+	{
+		@Override
+		public int compare(Casella casella1, Casella casella2)
+		{
+			return new Integer(casella1.getNumeroColumna().compareTo(new Integer(casella2.getNumeroColumna())));
+		}
+	}
+	
+	public class ordenaporcolumnainversa implements Comparator<Casella>
+	{
+		@Override
+		public int compare(Casella casella1, Casella casella2)
+		{
+			return new Integer(casella2.getNumeroColumna().compareTo(new Integer(casella1.getNumeroColumna())));
+		}
+	}
+	
+	public ArrayList obteFila(boolean ordre, Integer fila)
+	{
+		ArrayList<Casella>filaCaselles = new ArrayList<Casella>();
+		Integer i = 0;
+		while(i<caselles.size())
+		{
+			Integer n = caselles.get(i).getNumeroFila();
+			if(n == fila) filaCaselles.add(caselles.get(i));
+			++i;
+		}
+		Collections.sort(filaCaselles, new ordenaporfila());
+		if(ordre == true) Collections.sort(filaCaselles, new ordenaporfilainversa());
+		return filaCaselles;
+	}
+	
+	public ArrayList obteCol(boolean ordre, Integer col)
+	{
+		ArrayList<Casella> colCaselles = new ArrayList<Casella>();
+		Integer i = 0;
+		while(i<caselles.size())
+		{
+			Integer n = caselles.get(i).getNumeroColumna();
+			if(n == col) colCaselles.add(caselles.get(i));
+			++i;
+		}
+		Collections.sort(colCaselles, new ordenaporcolumna());
+		if(ordre == true) Collections.sort(colCaselles, new ordenaporcolumnainversa());
+		return colCaselles;
+	}
 	
 	private static int randInt(int min, int max)
 	{
@@ -101,7 +165,7 @@ public class CtrlCasUsJugarPartida {
 		}
 	}
 	
-	public ArrayList obteLinies(String mov)
+	public void obteLinies(String mov)
 	{
 		boolean ordre = true;
 		ArrayList<Casella> linies = new ArrayList<Casella>();
@@ -109,38 +173,10 @@ public class CtrlCasUsJugarPartida {
 		Integer i=0;
 		while(i<4)
 		{
-			ArrayList<Casella> t = new ArrayList<Casella>();
-			if(mov == "amunt" || mov == "avall") t = P.obteCol(ordre, i);
-			if(mov == "dreta" || mov == "esquerra") t = P.obteFila(ordre, i);
-			++i;
-			linies.addAll(t);
-		}
-		return linies;
-	}
-	
-	public ArrayList getCasellesValor()
-	{
-		ArrayList<Casella> conj = new ArrayList<Casella>();
-		ArrayList<Casella> C = P.getCaselles();
-		Integer i = 0;
-		while(i<C.size())
-		{
-			if(!C.get(i).esBuida()) conj.add(C.get(i));
+			if(mov == "amunt" || mov == "avall") ;
 			++i;
 		}
-		return conj;
-	}
-	
-	public boolean comprovarPartidaGuanyada()
-	{
-		boolean guanyada = false;
-		Integer i = 0;
-		while(i<caselles.size() && !guanyada)
-		{
-			if(caselles.get(i).getNumero()==2048) guanyada = true;
-			++i;
-		}
-		return guanyada;
+		
 	}
 	
 }
