@@ -22,6 +22,11 @@ public class PrimaryKeyCasella  implements Serializable {
 
 	public PrimaryKeyCasella() {
 	}
+	
+	public PrimaryKeyCasella(Integer numeroFila, Integer numeroColumna) {
+		this.numeroFila = numeroFila;
+		this.numeroColumna = numeroColumna;
+	}
 
 	public PrimaryKeyCasella(Integer numeroFila, Integer numeroColumna,
 			Partida partida) {
@@ -29,12 +34,16 @@ public class PrimaryKeyCasella  implements Serializable {
 		this.numeroColumna = numeroColumna;
 		this.partida = partida;
 	}
-
+	
 	public Integer getNumeroFila() {
 		return numeroFila;
 	}
-
+	
 	public void setNumeroFila(Integer numeroFila) {
+		this.numeroFila = numeroFila;
+	}
+
+	public void getNumeroColumna(Integer numeroFila) {
 		this.numeroFila = numeroFila;
 	}
 

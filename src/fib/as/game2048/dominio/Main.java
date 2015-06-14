@@ -20,7 +20,7 @@ public class Main {
 		
 		Integer count_random = 0;
 		ArrayList<Integer> randCaselles = generateRandomsCaselles(4, 2);
-		List<Casella> caselles = new ArrayList<Casella>();
+		ArrayList<Casella> caselles = new ArrayList<Casella>();
 		for(int i = 0; i < 4; i++) {
 			for(int j = 0; j < 4; j++) {
 				int valor = 0;
