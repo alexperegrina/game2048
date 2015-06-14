@@ -10,12 +10,13 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-public class Main {
+public class main2 {
 
 	public static void main(String[] args) {
 		SessionFactory sessionFactory = initSessionFactory();
 		
-		Partida p1 = new Partida(1);
+		Jugador j1 = new Jugador("carlos","lopez","calo","carlito","carlito@lope.es",0);
+		Partida p1 = new Partida(j1,1);
 		PrimaryKeyCasella key1 = new PrimaryKeyCasella(1, 1, p1);
 		
 		Integer count_random = 0;
@@ -36,11 +37,19 @@ public class Main {
 		
 		p1.setCaselles(caselles);
 		
+		j1.assignarPartidaActual(p1);
+		System.out.println(j1.getMillorPuntuacio());
+		//System.out.println(j1.getPuntuacioMitjana());
+		System.out.println(j1.getNom());
+		System.out.println(j1.isPassword("hola"));
+		System.out.println(j1.isPassword("calo"));
+		
+		
 		Session session=sessionFactory.openSession();
 		session.beginTransaction();
 		
 		session.save(p1);
-		
+		session.save(j1);
 		session.getTransaction().commit();
 		session.close();
 		

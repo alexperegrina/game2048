@@ -1,4 +1,4 @@
-package fib.as.game2048.dominio;
+package fib.as.game2048;
 
 import java.io.Serializable;
 
@@ -8,11 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * 
- * @author Alex Peregrina Cabrera
- *
- */
 @Entity
 @Table(name="casella")
 public class Casella implements Serializable{
@@ -31,10 +26,6 @@ public class Casella implements Serializable{
 		this.key = key;
 		this.numero = numero;
 	}
-	
-	public Casella(Integer numeroFila, Integer numeroColumna, Integer numero) {
-		
-	}
 
 	public PrimaryKeyCasella getKey() {
 		return key;
@@ -52,35 +43,14 @@ public class Casella implements Serializable{
 		this.numero = numero;
 	}
 	
-	public void assignarPartida(Partida partida) {
-		
+	public Integer getNumeroFila()
+	{
+		return key.getNumeroFila();
 	}
 	
-	public Integer fusio(Casella casella) {
-		return null;
+	public Integer getNumeroColumna()
+	{
+		return key.getNumeroColumna();
 	}
 	
-	public Integer getNumeroFila() {
-		return null;
-	}
-	
-	public Integer getNumeroColumna() {
-		return null;
-	}
-	
-	public Boolean esBuida() {
-		return null;
-	}
-	
-	public void copia(Casella casella) {
-		
-	}
-	
-	public Integer duplica() {
-		return null;
-	}
-	
-	public void buida() {
-		
-	}
 }
