@@ -40,7 +40,7 @@ public class CtrlCasUsJugarPartida extends CtrlCasUs {
 		ret.add(caselles);
 	}
 	
-	public ArrayList<TuplePersPunt> obtenirRanking() throws ExcepcioNoHiHaPartida
+	public ArrayList<TuplePersPunt> obtenirRanking()
 	{
 		CtrlCasUsRanking CCR = CtrlDataFactory.getCtrlCasUsRanking();
 		ArrayList<TuplePersPunt> ranking = CCR.consultarRanking();
