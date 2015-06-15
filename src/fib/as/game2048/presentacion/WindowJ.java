@@ -8,21 +8,21 @@ import javax.swing.JFrame;
 
 public class WindowJ extends GraphicElement{
 	private JFrame f;
-	private GridBagConstraints c;
+	private GridBagConstraints c;//GridBagConstraints es el layout mes flexible
 	public WindowJ(){
 		f = new JFrame();
 		this.setC(f);
 		f.setVisible(false);
 	}
 	
-	
+	//amplada, altura
 	public WindowJ(int x, int y){
 		f = new JFrame();
 		this.setC(f);
 		f.setVisible(false);
 		f.setSize(x, y);
 	}
-	
+	//inicialitza el layout
 	public void setLayout(){
 		f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		GridBagLayout layout = new GridBagLayout();
@@ -36,17 +36,18 @@ public class WindowJ extends GraphicElement{
 	}
 	
 	
-	
+	//affegeix un component -DEPRECATED-
 	public void addComponent(ComponentJ c){
 		f.add(c.getC());
 	}
 	
+	//afegeix un component en la posicio row col
 	public void addComponent(ComponentJ comp, Integer row, Integer col, Boolean fil){
 		c.gridx = row;
 		c.gridy = col;
 		f.add(comp.getC(), c);
 	}
-	
+	//afegeix un component en la posicio row col i aplica anchor i fill
 	public void addComponentTop(ComponentJ comp, Integer row, Integer col, Boolean fil){
 		c.gridx = row;
 		c.gridy = col;

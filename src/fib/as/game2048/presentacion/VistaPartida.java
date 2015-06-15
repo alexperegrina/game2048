@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
+import fib.as.game2048.dominio.CtrlCasDUsJugarPartida;
+
 public class VistaPartida extends Vista{
 	private WindowJ win;
 	private ArrayList<ComponentJ> comps;
@@ -18,7 +20,7 @@ public class VistaPartida extends Vista{
 	private ButtonJ bRight;
 	ArrayList<Area> caselles;
 	private ControladorVista cv;
-	private CtrlCasUsJugarPartida cp;
+	private CtrlCasDUsJugarPartida cp;
 	public VistaPartida(ControladorVista ctrlv){
 		win = new WindowJ(800,600);
 		win.setLayout();
@@ -84,9 +86,11 @@ public class VistaPartida extends Vista{
 			  for(Area a : caselles){
 			  	a.setText("");
 			  }
-			  ArrayList<ArrayList<Integer> > casis = res.get(3);
+			  ArrayList<ArrayList<Integer> > casis = (ArrayList<ArrayList<Integer>>) res.get(3);
 			  for(ArrayList ar : casis){
-			  	caselles.get(ar.get(0)*4 + ar.get(1)).setText(ar.get(2).toString());
+				  Integer fila = (Integer) ar.get(0);
+				  Integer columna = (Integer) ar.get(1);
+			  	caselles.get(fila *4 + columna).setText(ar.get(2).toString());
 			  }
 			}
 		 

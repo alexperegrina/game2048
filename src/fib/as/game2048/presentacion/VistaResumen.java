@@ -1,12 +1,18 @@
 package fib.as.game2048.presentacion;
 
+import java.awt.Button;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
+import fib.as.game2048.dominio.ExcepcioNoHiHaPartida;
 
 public class VistaResumen extends Vista{
 	private WindowJ win;
 	private ArrayList<ComponentJ> comps;
 	private ControladorVista cv;
-	
+	private ButtonJ rankingb;
+	private ButtonJ okb;
 	public VistaResumen(ControladorVista ctrlv, Integer score, String mes){
 		win = new WindowJ(800,600);
 		win.setLayout();
@@ -16,8 +22,8 @@ public class VistaResumen extends Vista{
 		LabelJ msg = new LabelJ(mes);
 		Area arsc = new Area("Score: " + score);
 		Area arbe = new Area("Best: " + score);
-		ButtonJ okb = new ButtonJ("Ok");
-		ButtonJ rankingb = new ButtonJ("Ranking");
+		okb = new ButtonJ("Ok");
+		rankingb = new ButtonJ("Ranking");
 		
 		comps.add(titol);
 		comps.add(msg);
@@ -38,8 +44,34 @@ public class VistaResumen extends Vista{
 		win.show();
 	}
 	public void rankPressed(){
-		
+		try{
+			cv.rankPressed();
+		}
+		catch(ExcepcioNoHiHaPartida ex){
+			
+		}
 	}
+	
+	public void addOkListener(){
+		Button b = (Button) okb.getC();
+		b.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			};
+		});
+	}
+	
+	public void addRankListener(VistaResumen v){
+		Button b = (Button) rankingb.getC();
+		b.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				v.rankPressed();
+			};
+		});
+	}
+	
 	public void okPressed(){
 		
 	}

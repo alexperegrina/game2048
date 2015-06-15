@@ -5,6 +5,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import fib.as.game2048.dominio.CtrlCasUsLogin;
+import fib.as.game2048.dominio.ExcepcioLoginIncorrecte;
+import fib.as.game2048.dominio.ExcepcioNoJugador;
+import fib.as.game2048.dominio.ExcepcioPwdIncorrecte;
+
 public class VistaLogin extends Vista{
 	private WindowJ win;
 	private ArrayList<ComponentJ> comps;
@@ -15,13 +20,12 @@ public class VistaLogin extends Vista{
 	private CheckJ checkUser;
 	private CheckJ checkPwd;
 	private ControladorVista cv;
-	//private CtrlCasUsLogin login
-	/*
-	 * public void setCtrlCasUsLogin(CtrlCasUsLogin cu){
-	 * 	login = cu;
-	 * }
-	 * 
-	 */
+	private CtrlCasUsLogin login;
+	
+	  public void setCtrlCasUsLogin(CtrlCasUsLogin cu){
+	  	login = cu;
+	  }
+	 
 	public VistaLogin(ControladorVista ctrlv){
 		win = new WindowJ(800,600);
 		win.setLayout();
@@ -69,7 +73,7 @@ public class VistaLogin extends Vista{
 			login.login(textf.getText(), p.getText());
 			  cv.okPressed();
 		}
-		catch(ExceptioLoginIncorrecte ex){
+		catch(ExcepcioLoginIncorrecte ex){
 			errorUserName(ex.getMessage());
 		}
 		
