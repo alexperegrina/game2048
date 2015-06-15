@@ -1,26 +1,32 @@
-package fib.as.game2048.dominio;
+package fib.as.game2048;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+<<<<<<< HEAD
+=======
+import java.util.Collections;
+>>>>>>> 86d563437bddcb4bf281d84dd6d9295d5c19422f
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.IndexColumn;
 
-/**
- * 
- * @author Alex Peregrina Cabrera
- *
- */
+import fib.as.game2048.CtrlCasUsJugarPartida.ordenaporcolumna;
+import fib.as.game2048.CtrlCasUsJugarPartida.ordenaporcolumnainversa;
+import fib.as.game2048.CtrlCasUsJugarPartida.ordenaporfila;
+import fib.as.game2048.CtrlCasUsJugarPartida.ordenaporfilainversa;
+
 @Entity
 @Table(name="partida")
 public class Partida implements Serializable{
@@ -31,8 +37,10 @@ public class Partida implements Serializable{
 	public static String MOVIMENT_ESQUERRA = "esquerra";
 
 	@Id
-	@Column(name="idPartida")
 	private Integer idPartida;
+
+	@ManyToOne
+	private Jugador jugador;
 	
 	@Column(name="estaAcabada")
 	private Boolean estaAcabada;
@@ -47,10 +55,13 @@ public class Partida implements Serializable{
 	@JoinColumn(name="idPartida")
 	@IndexColumn(name="idx")
 	private ArrayList<Casella> caselles;
+<<<<<<< HEAD
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="jugador")
 	private Jugador jugador;
+=======
+>>>>>>> 86d563437bddcb4bf281d84dd6d9295d5c19422f
 	
 	/**
 	 * Constructora vacia
@@ -58,15 +69,20 @@ public class Partida implements Serializable{
 	public Partida() {
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Constructora pasandole idPartida
 	 * @param idPartida Integer
 	 */
 	public Partida(Integer idPartida) {
+=======
+	public Partida(Jugador jugador, Integer idPartida) {
+>>>>>>> 86d563437bddcb4bf281d84dd6d9295d5c19422f
 		this.idPartida = idPartida;
 		this.estaAcabada = false;
 		this.estaGuanyada = false;
 		this.puntuacio = 0;
+<<<<<<< HEAD
 	}
 	
 	/**
@@ -84,6 +100,9 @@ public class Partida implements Serializable{
 		this.crearTaulell();
 //		return caselles;
 		
+=======
+		this.jugador = jugador;
+>>>>>>> 86d563437bddcb4bf281d84dd6d9295d5c19422f
 	}
 
 	/**
@@ -150,22 +169,29 @@ public class Partida implements Serializable{
 		this.puntuacio = puntuacio;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Consultamos las casellas de la partida
 	 * @return ArrayList<Casella>
 	 */
+=======
+>>>>>>> 86d563437bddcb4bf281d84dd6d9295d5c19422f
 	public ArrayList<Casella> getCaselles() {
 		return caselles;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Modificamos el vector de casillas de la partida
 	 * @param caselles ArrayList<Casella>
 	 */
+=======
+>>>>>>> 86d563437bddcb4bf281d84dd6d9295d5c19422f
 	public void setCaselles(ArrayList<Casella> caselles) {
 		this.caselles = caselles;
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * Metodo para crear las 16 casillas que forman la partida, ademas dos de las casillas tiene un valor(2,4) las demas
 	 * casillas tiene valor null.
@@ -426,4 +452,72 @@ public class Partida implements Serializable{
 	public String toString() {
 		return "Id: " + idPartida + " -- Puntuacion: " + puntuacio;
 	}
+=======
+	public class ordenaporfila implements Comparator<Casella>
+	{
+		@Override
+		public int compare(Casella casella1, Casella casella2)
+		{
+			return new Integer(casella1.getNumeroFila().compareTo(new Integer(casella2.getNumeroFila())));
+		}
+	}
+	
+	public class ordenaporfilainversa implements Comparator<Casella>
+	{
+		@Override
+		public int compare(Casella casella1, Casella casella2)
+		{
+			return new Integer(casella2.getNumeroFila().compareTo(new Integer(casella1.getNumeroFila())));
+		}
+	}
+	
+	public class ordenaporcolumna implements Comparator<Casella>
+	{
+		@Override
+		public int compare(Casella casella1, Casella casella2)
+		{
+			return new Integer(casella1.getNumeroColumna().compareTo(new Integer(casella2.getNumeroColumna())));
+		}
+	}
+	
+	public class ordenaporcolumnainversa implements Comparator<Casella>
+	{
+		@Override
+		public int compare(Casella casella1, Casella casella2)
+		{
+			return new Integer(casella2.getNumeroColumna().compareTo(new Integer(casella1.getNumeroColumna())));
+		}
+	}
+	
+	public ArrayList obteFila(boolean ordre, Integer fila)
+	{
+		ArrayList<Casella>filaCaselles = new ArrayList<Casella>();
+		Integer i = 0;
+		while(i<caselles.size())
+		{
+			Integer n = caselles.get(i).getNumeroFila();
+			if(n == fila) filaCaselles.add(caselles.get(i));
+			++i;
+		}
+		Collections.sort(filaCaselles, new ordenaporfila());
+		if(ordre == true) Collections.sort(filaCaselles, new ordenaporfilainversa());
+		return filaCaselles;
+	}
+	
+	public ArrayList obteCol(boolean ordre, Integer col)
+	{
+		ArrayList<Casella> colCaselles = new ArrayList<Casella>();
+		Integer i = 0;
+		while(i<caselles.size())
+		{
+			Integer n = caselles.get(i).getNumeroColumna();
+			if(n == col) colCaselles.add(caselles.get(i));
+			++i;
+		}
+		Collections.sort(colCaselles, new ordenaporcolumna());
+		if(ordre == true) Collections.sort(colCaselles, new ordenaporcolumnainversa());
+		return colCaselles;
+	}
+	
+>>>>>>> 86d563437bddcb4bf281d84dd6d9295d5c19422f
 }

@@ -1,4 +1,4 @@
-package fib.as.game2048.dominio;
+package fib.as.game2048;
 
 import java.io.Serializable;
 
@@ -8,11 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * 
- * @author Alex Peregrina Cabrera
- *
- */
 @Entity
 @Table(name="casella")
 public class Casella implements Serializable{
@@ -24,9 +19,14 @@ public class Casella implements Serializable{
 	@Column(name="numero")
 	private Integer numero;
 	
+<<<<<<< HEAD
 	/**
 	 * Constructor vacio
 	 */
+=======
+	private Partida P;
+	
+>>>>>>> 86d563437bddcb4bf281d84dd6d9295d5c19422f
 	public Casella() {
 	}
 
@@ -40,6 +40,7 @@ public class Casella implements Serializable{
 		this.numero = numero;
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * Constructor que se le pasa la fila, columna, y el valor
 	 * @param numeroFila Integer
@@ -63,6 +64,13 @@ public class Casella implements Serializable{
 	public Casella(Integer numeroFila, Integer numeroColumna, Integer numero, Partida partida) {
 		this.numero = numero;
 		this.key = new PrimaryKeyCasella(numeroFila, numeroColumna, partida);
+=======
+	public Casella(Integer i, Integer j, Integer numero, Partida P) {
+		this.key.setNumeroFila(i);
+		this.key.setNumeroColumna(j);
+		this.numero = numero;
+		this.P = P;
+>>>>>>> 86d563437bddcb4bf281d84dd6d9295d5c19422f
 	}
 
 	/**
@@ -97,6 +105,7 @@ public class Casella implements Serializable{
 		this.numero = numero;
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * Asignamos una Partida a la casilla.
 	 * @param partida Partida
@@ -146,6 +155,16 @@ public class Casella implements Serializable{
 	 */
 	public Integer getNumeroColumna() {
 		return this.key.getNumeroColumna();
+=======
+	public Integer getNumeroFila()
+	{
+		return key.getNumeroFila();
+	}
+	
+	public Integer getNumeroColumna()
+	{
+		return key.getNumeroColumna();
+>>>>>>> 86d563437bddcb4bf281d84dd6d9295d5c19422f
 	}
 	
 	/**
@@ -156,6 +175,7 @@ public class Casella implements Serializable{
 		return this.numero == null;
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * Metodo para realizar una copia de la casilla que se pasa como parametro
 	 * @param casella, casilla a copiar.
@@ -184,4 +204,6 @@ public class Casella implements Serializable{
 	public String toString() {
 		return "fila: " + this.getNumeroFila() + " columna: " + this.getNumeroColumna() + " numero: " + this.getNumero();
 	}
+=======
+>>>>>>> 86d563437bddcb4bf281d84dd6d9295d5c19422f
 }

@@ -1,4 +1,4 @@
-package fib.as.game2048.dominio;
+package fib.as.game2048;
 
 import java.util.ArrayList;
 import java.util.List;

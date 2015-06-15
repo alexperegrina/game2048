@@ -1,0 +1,17 @@
+package fib.as.game2048;
+
+import java.util.ArrayList;
+
+public class CtrlCasUsRanking extends CtrlCasUs {
+
+	public void consultarRanking()
+	{
+		//tupletype nom, puntuacio
+		CtrlDataFactory CDF = new CtrlDataFactory();
+		CtrlPartida CP = CDF.getCtrlPartida();
+		ArrayList<Partida> SP = CP.getAllPartidaJugada();
+		if(SP.size()==0) throw new IllegalArgumentException("noHiHaPartida");
+		CtrlJugador CJ = CDF.getCtrlJugador();
+		ArrayList<Jugador> SJ = CJ.getAllJugador();
+	}
+}
