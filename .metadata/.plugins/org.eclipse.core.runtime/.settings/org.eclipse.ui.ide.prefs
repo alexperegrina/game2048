@@ -1,5 +1,9 @@
 PROBLEMS_FILTERS_MIGRATE=true
 eclipse.preferences.version=1
+<<<<<<< HEAD
 platformState=1431932511675
+=======
+platformState=1430828620143
+>>>>>>> eric
 quickStart=false
 tipsAndTricks=true

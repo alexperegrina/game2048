@@ -1,0 +1,54 @@
+package fib.as.game2048;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Jugador")
+public class Jugador extends UsuariRegistrat {
+	@Id
+	@Embedded
+	private PrimaryKeyJugador key;
+	
+	@Column(name="millorPuntuacio")
+	private Integer millorPuntuacio;
+	
+	public Jugador()
+	{
+		super();
+	}
+	
+	public Jugador(String nom, String cognoms, String pwd, PrimaryKeyJugador key, Integer millorPuntuacio)
+	{
+		super(nom,cognoms,key.getUsername(),pwd);
+		this.email = key.getEmail();
+		this.millorPuntuacio = millorPuntuacio;
+	}
+	
+	public Integer getMillorPuntuacio()
+	{
+		return this.millorPuntuacio;
+	}
+	
+	public String getNom()
+	{
+		return super.getNom();
+	}
+	
+//	public Integer getPuntuacioMitjana(){}
+	public void assignarPartidaActual(Partida p){}
+	public void eliminarPartidaActual(Partida p){}
+	public void assignarPartidaJugada(Partida p){}
+	
+	public void setMillorPuncuacio(Integer punts)
+	{
+		this.millorPuntuacio = punts;
+	}
+	
+	
+}

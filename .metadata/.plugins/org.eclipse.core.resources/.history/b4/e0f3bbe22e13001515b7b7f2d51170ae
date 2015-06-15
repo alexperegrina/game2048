@@ -1,0 +1,9 @@
+package fib.as.game2048;
+
+public class CtrlJugador {
+	
+	public Jugador getJugador(String userN)
+	{
+		
+	}
+}

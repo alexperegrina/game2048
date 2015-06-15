@@ -285,7 +285,7 @@ public class Partida implements Serializable{
 	/**
 	 * Metodo para consultar la fila indicada en un orden indicado.
 	 * @param ordre, true --> orden original de la fila, false --> inverso de la fila
-	 * @param fila, valor [0..3]
+	 * @param fila, valor [0..3]
 	 * @return ArrayList<Casella>
 	 */
 	public ArrayList<Casella> obteFila(Boolean ordre, Integer fila) {
@@ -315,7 +315,7 @@ public class Partida implements Serializable{
 	/**
 	 * Metodo para consultar la columna indicada en un orden indicado.
 	 * @param ordre, true --> orden original de la fila, false --> inverso de la fila
-	 * @param col, valor [0..3]
+	 * @param col, valor [0..3]
 	 * @return ArrayList<Casella>
 	 */
 	public ArrayList<Casella> obteColumna(Boolean ordre, Integer col) {

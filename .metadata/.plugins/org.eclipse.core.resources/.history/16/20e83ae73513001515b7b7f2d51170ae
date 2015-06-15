@@ -1,0 +1,34 @@
+package fib.as.game2048;
+
+public static class CtrlDataFactory {
+	
+	public static CtrlDataFactory getInstance()
+	{
+		
+	}
+	
+	public static CtrlUsuariRegistrat getCtrlUsuarisRegistrats()
+	{
+		
+	}
+	
+	public static CtrlPartida getCtrlPartida()
+	{
+		
+	}
+	
+	public static CtrlJugador getCtrlJugador()
+	{
+		
+	}
+	
+	public static CtrlCasUsLogin getCtrlCasUsLogin()
+	{
+		
+	}
+	
+	public static CtrlCasUsRanking getCtrlCasUsRanking()
+	{
+		
+	}
+}
