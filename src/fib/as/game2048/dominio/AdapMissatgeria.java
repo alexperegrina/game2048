@@ -1,4 +1,4 @@
-package fib.as.game2048;
+package fib.as.game2048.dominio;
 
 import java.io.IOException;
 import java.io.InputStream;

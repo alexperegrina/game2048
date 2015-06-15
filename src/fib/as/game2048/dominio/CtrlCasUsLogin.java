@@ -1,4 +1,4 @@
-package fib.as.game2048;
+package fib.as.game2048.dominio;
 
 public class CtrlCasUsLogin extends CtrlCasUs{
 	
