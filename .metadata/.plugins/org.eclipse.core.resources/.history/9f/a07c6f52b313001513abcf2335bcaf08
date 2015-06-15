@@ -26,9 +26,4 @@ public final class CtrlDataFactory {
 	{
 		return new CtrlCasUsRanking();
 	}
-	
-	public static CtrlCasUsJugarPartida getCtrlCasUsJugarPartida()
-	{
-		return new CtrlCasUsJugarPartida();
-	}
 }
