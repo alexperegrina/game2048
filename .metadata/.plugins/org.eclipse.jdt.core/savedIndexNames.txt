@@ -7,6 +7,7 @@ INDEX VERSION 1.127+D:\Entorno Eclipse\2048git\game2048\.metadata\.plugins\org.e
 2655229456.index
 2328269416.index
 3669786461.index
+2371433045.index
 3983703533.index
 1625767562.index
 4003461545.index
