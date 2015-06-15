@@ -6,7 +6,7 @@ public class CtrlCasUsLogin extends CtrlCasUs{
 	{
 		boolean b = true;
 		CtrlUsuariRegistrat CUR = CtrlDataFactory.getCtrlUsuarisRegistrats();
-		UsuariRegistrat U = CUR.getUsuariRegistrat(userN);
+		UsuariRegistrat U = CUR.get(userN);
 		if(!U.isPassword(passwd)) throw new ExcepcioPwdIncorrecte();
 		return b;
 	}
