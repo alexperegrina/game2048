@@ -1,5 +1,7 @@
 package fib.as.game2048.presentacion;
 
+import java.util.ArrayList;
+
 public class ControladorVista {
 	
 	private VistaLogin vistalogin;
@@ -8,37 +10,34 @@ public class ControladorVista {
 	private VistaRanking vistaranking;
 	private VistaResumen vistaresumen;
 	
+	/*
+	 * private CtrlCasUsLogin login
+	 * private CtrlCasUsJugarPartida partida
+	 * private CtrlCasUsRanking ranking
+	 * 
+	 */
+	
 	public ControladorVista(){
-		vistalogin = new VistaLogin();
-		vistalogin.addOKListener(this);
-		vistalogin.show();/*
-		vistamenu = new VistaMenu();
-		vistamenu.show();
-		vistapartida = new VistaPartida();
-		vistapartida.show();
-		vistaresumen = new VistaResumen();
-		vistaresumen.show();
-		vistaranking = new VistaRanking();
-		vistaranking.show();*/
+		/*
+		login = CtrlDataFactory.getCtrlCasUsLogin();
+		partida = CtrlDataFactory.getCtrlPartida();
+		ranking = CtrlDataFactory.getCtrlCasUsRanking(); */
 	}
 
 	public void inicialitzar(){
-		
+		vistalogin = new VistaLogin(this);
+		vistalogin.show();
 	}
 	
-	public void okPressed(String usr, String pwd){
-		try{
-			System.out.println("usr: "+usr+" pwd: "+pwd);
-			//System.exit(0);
+	public void okPressed(){
+		
 			vistalogin.tancar();
 			iniciarMenu();
-		}
-		catch(Exception ex){
-			vistalogin.errorNoJugador(ex.getMessage());
-		}
+			 
 	}
 	
 	public void newPressed(){
+		
 		vistamenu.tancar();
 		iniciarPartida();
 	}
@@ -49,7 +48,14 @@ public class ControladorVista {
 	}
 	
 	public void rankPressed(){
-		inciiarRanking();
+		//ArrayList<TuplesPersPunt> r = ranking.consultarRanking();
+		//ArrayList<String> rannks = new ArrayList<String>();
+		/*for(TuplesPersPunt t : r){
+			rannks.add(r.getNom()+": "+r.getPunt());
+		}*/
+		//iniciarRanking(rannks);
+		iniciarRanking();//borrar al descomentar las otras
+		
 	}
 	
 	public void exit(){
@@ -57,22 +63,29 @@ public class ControladorVista {
 	}
 	
 	public void iniciarMenu(){
-		vistamenu = new VistaMenu();
-		vistamenu.addOKListener(this);
+		vistamenu = new VistaMenu(this);
 		vistamenu.show();
 	}
 	
 	public void iniciarPartida(){
-		vistapartida = new VistaPartida();
+		vistapartida = new VistaPartida(this);
 		vistapartida.show();
 	}
 	
-	public void iniciarResumen(int score, int maxscore){
-		vistaresumen = new VistaResumen();
+	public void iniciarResumen(Integer score, String msg){
+		vistapartida.tancar();
+		vistaresumen = new VistaResumen(this, score, msg);
 		vistaresumen.show();
 	}
-	public void inciiarRanking(){
+	public void iniciarRanking(){
+		vistaresumen.tancar();
 		vistaranking = new VistaRanking();
+		vistaranking.show();
+	}
+	public void iniciarRanking(ArrayList<String> r){
+		vistaresumen.tancar();
+		vistaranking = new VistaRanking();
+		vistaranking.omple(r);
 		vistaranking.show();
 	}
 }

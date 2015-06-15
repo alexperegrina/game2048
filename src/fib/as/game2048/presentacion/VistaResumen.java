@@ -5,15 +5,17 @@ import java.util.ArrayList;
 public class VistaResumen extends Vista{
 	private WindowJ win;
 	private ArrayList<ComponentJ> comps;
+	private ControladorVista cv;
 	
-	public VistaResumen(){
+	public VistaResumen(ControladorVista ctrlv, Integer score, String mes){
 		win = new WindowJ(800,600);
 		win.setLayout();
+		cv = ctrlv;
 		comps = new ArrayList<ComponentJ>();
 		LabelJ titol = new LabelJ("Joc 2048");
-		LabelJ msg = new LabelJ("Win!/Lose!/Eric xD");
-		Area arsc = new Area("Score: x");
-		Area arbe = new Area("Best: y");
+		LabelJ msg = new LabelJ(mes);
+		Area arsc = new Area("Score: " + score);
+		Area arbe = new Area("Best: " + score);
 		ButtonJ okb = new ButtonJ("Ok");
 		ButtonJ rankingb = new ButtonJ("Ranking");
 		
@@ -38,6 +40,14 @@ public class VistaResumen extends Vista{
 	public void rankPressed(){
 		
 	}
+	public void okPressed(){
+		
+	}
+	
+	public void tancar(){
+		this.win.tancar();
+	}
+	
 	public void errorNoPartides(String msg){
 		
 	}

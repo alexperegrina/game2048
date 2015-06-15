@@ -27,6 +27,7 @@ public class Area extends NonEditable{
 		return text;
 	}
 	public void setText(String text) {
+		lab.setText(text);
 		this.text = text;
 	}
 	public Color getBgColor() {

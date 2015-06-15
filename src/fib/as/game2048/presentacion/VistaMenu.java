@@ -10,8 +10,8 @@ public class VistaMenu extends Vista{
 	private ArrayList<ComponentJ> comps;
 	private ButtonJ newb;
 	private ButtonJ exitb;
-	
-	public VistaMenu(){
+	private ControladorVista cv;
+	public VistaMenu(ControladorVista ctrlv){
 		win = new WindowJ(800,600);
 		win.setLayout();
 		comps = new ArrayList<ComponentJ>();
@@ -25,10 +25,12 @@ public class VistaMenu extends Vista{
 		comps.add(titol);
 		comps.add(newb);
 		comps.add(exitb);
+		cv = ctrlv;
+		addOKListener(this);
 		this.addCancelListener();
 	}
 	
-	public void addOKListener(ControladorVista v){
+	public void addOKListener(VistaMenu v){
 		Button b = (Button) newb.getC();
 		b.addActionListener(new ActionListener(){
 			@Override
@@ -56,7 +58,7 @@ public class VistaMenu extends Vista{
 	}
 	
 	public void newPressed(){
-		
+		cv.newPressed();
 	}
 	
 	public void tancar(){

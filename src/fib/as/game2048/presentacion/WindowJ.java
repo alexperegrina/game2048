@@ -59,5 +59,6 @@ public class WindowJ extends GraphicElement{
 	public void tancar(){
 		this.f.dispose();
 	}
+	
 }
 

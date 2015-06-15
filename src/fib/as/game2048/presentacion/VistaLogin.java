@@ -8,17 +8,24 @@ import java.util.ArrayList;
 public class VistaLogin extends Vista{
 	private WindowJ win;
 	private ArrayList<ComponentJ> comps;
-	private String login;
-	private String pwd;
 	private ButtonJ okb;
 	private ButtonJ cancelb;
 	private TextField textf;
 	private Password p;
 	private CheckJ checkUser;
 	private CheckJ checkPwd;
-	public VistaLogin(){
+	private ControladorVista cv;
+	//private CtrlCasUsLogin login
+	/*
+	 * public void setCtrlCasUsLogin(CtrlCasUsLogin cu){
+	 * 	login = cu;
+	 * }
+	 * 
+	 */
+	public VistaLogin(ControladorVista ctrlv){
 		win = new WindowJ(800,600);
 		win.setLayout();
+		cv = ctrlv;
 		//LabelJ buit = new LabelJ("");
 		LabelJ titol = new LabelJ("Joc 2048");
 		LabelJ login = new LabelJ("Login:");
@@ -50,6 +57,7 @@ public class VistaLogin extends Vista{
 		win.addComponent(checkPwd, 2, 2, false);
 		win.addComponent(okb, 2, 3, false);
 		win.addComponent(cancelb, 3, 3, false);
+		addOKListener(this);
 		this.addCancelListener();
 		//win.show();
 	}
@@ -57,16 +65,33 @@ public class VistaLogin extends Vista{
 		win.show();
 	}
 	public void okPressed(){
+		/*try{
+			login.login(textf.getText(), p.getText());
+			  cv.okPressed();
+		}
+		catch(Exception ex){
+			errorUserName(ex.getMessage());
+		}
 		
+		 catch(Exception ex){
+		 		errorPassword(ex.getMessage());
+		 }
+		 catch(Exception ex){
+		 		errorNoJugador(ex.getMessage());
+		 }
+		 catch(Exception ex){
+		 		error(ex.getMessage());
+		 }
+		 
+		 */
 	}
 	
-	public void addOKListener(ControladorVista v){
+	public void addOKListener(VistaLogin v){
 		Button b = (Button) okb.getC();
 		b.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				v.okPressed(textf.getText(), p.getText());
-				
+				v.okPressed();
 			};
 		});
 		
