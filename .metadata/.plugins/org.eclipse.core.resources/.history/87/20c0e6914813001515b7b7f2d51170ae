@@ -11,7 +11,7 @@ import org.hibernate.service.ServiceRegistry;
 
 public class CtrlPartida {
 	
-	public ArrayList<Partida> getAllPartidaJugada()
+	public ArrayList getAllPartidaJugada()
 	{
 		SessionFactory sessionFactory;
 		Configuration configuration = new Configuration();
@@ -22,11 +22,8 @@ public class CtrlPartida {
 		Session session=sessionFactory.openSession();
 		session.beginTransaction();
 		
-		ArrayList<Partida> partidas = new ArrayList<Partida>();
-		partidas.addAll(session.createCriteria(Partida.class).addOrder(Order.asc("idPartida")).list());
+		session.createCriteria(Partida.class).addOrder(Order.asc("idPartida")).list();
 		
 		session.close();
-		return partidas;
-		
 	}
 }

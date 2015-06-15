@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class CtrlCasUsRanking extends CtrlCasUs {
 
-	public ArrayList<TuplePersPunt> consultarRanking()
+	public void consultarRanking()
 	{
 		CtrlPartida CP = CtrlDataFactory.getCtrlPartida();
 		ArrayList<Partida> SP = CP.getAllPartidaJugada();

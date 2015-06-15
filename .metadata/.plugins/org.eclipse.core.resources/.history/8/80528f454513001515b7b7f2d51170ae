@@ -41,7 +41,7 @@ public class CtrlCasUsJugarPartida extends CtrlCasUs {
 	}
 	
 	
-	/*
+	
 	private static int randInt(int min, int max)
 	{
 		Random rand = new Random();
@@ -163,7 +163,7 @@ public class CtrlCasUsJugarPartida extends CtrlCasUs {
 		 * Creo que deberia estar en Partida.Si se cambia
 		 * hay que cambiar preparaSeguentMoviment
 		 * */
-/*		ArrayList<Casella> conj = new ArrayList<Casella>();
+		ArrayList<Casella> conj = new ArrayList<Casella>();
 		ArrayList<Casella> C = P.getCaselles();
 		Integer i = 0;
 		while(i<C.size())
@@ -181,5 +181,5 @@ public class CtrlCasUsJugarPartida extends CtrlCasUs {
 		Integer num = randInt(1,2)*2;
 		C.get(0).setNumero(num);
 	}
-	*/
+	
 }
