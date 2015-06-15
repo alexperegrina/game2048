@@ -12,32 +12,30 @@ public class CtrlCasUsJugarPartida extends CtrlCasUs {
 	
 	private ArrayList<Casella> caselles;
 	
-	private Jugador jugador;
+	private CtrlDataFactory CDF;
+	private Jugador j;
 	
 	public void ferAutenficicacio(String userN, String passwd) throws ExcepcioPwdIncorrecte
 	{
 		CtrlJugador CJ = CtrlDataFactory.getCtrlJugador();
 		CtrlCasUsLogin CCL = CtrlDataFactory.getCtrlCasUsLogin();
 		CCL.login(userN,passwd);
-		Jugador j =CJ.getJugador(userN);
-		this.jugador = j;
+		j =CJ.getJugador(userN);
 	}
 	
-	public ArrayList<Object> crearPartida(Jugador jugador)
+	public void crearPartida(Jugador jugador)
 	{
-		Integer id = Joc2048.getIdPartida();
-		Integer id1 = Joc2048.incrementarId();
+		Joc2048 joc = new Joc2048();
+		Integer id = joc.getIdPartida();
+		Integer id1 = joc.incrementarId();
 		P = new Partida(jugador,id);
 		P.crearTaulell();
 		caselles = P.getCasellesValor();
 		EstrategiaPuntuacio E;
-		Joc2048.assignarEstrategia(E);
+		joc.assignarEstrategia(E);
 		jugador.assignarPartidaActual(P);
 		Integer points = jugador.getMillorPuntuacio();
-		ArrayList<Object> ret = new ArrayList<Object>();
-		ret.add(0);
-		ret.add(points);
-		ret.add(caselles);
+		//No entiendo nada
 	}
 	
 	

@@ -23,7 +23,7 @@ public class CtrlCasUsJugarPartida extends CtrlCasUs {
 		this.jugador = j;
 	}
 	
-	public ArrayList<Object> crearPartida(Jugador jugador)
+	public void crearPartida(Jugador jugador)
 	{
 		Integer id = Joc2048.getIdPartida();
 		Integer id1 = Joc2048.incrementarId();
