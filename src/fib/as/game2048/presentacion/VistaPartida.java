@@ -18,7 +18,7 @@ public class VistaPartida extends Vista{
 	private ButtonJ bRight;
 	ArrayList<Area> caselles;
 	private ControladorVista cv;
-	//private CtrlCasUsJugarPartida cp;
+	private CtrlCasUsJugarPartida cp;
 	public VistaPartida(ControladorVista ctrlv){
 		win = new WindowJ(800,600);
 		win.setLayout();
@@ -68,7 +68,7 @@ public class VistaPartida extends Vista{
 		win.show();
 	}
 	public void keyPressed(String key){
-		/*ArrayList<Object> res = cp.ferMoviment(key);
+		ArrayList<Object> res = cp.ferMoviment(key);
 			if((Boolean) res.get(0)){
 				if((Boolean) res.get(1)){
 					//estaguanyada
@@ -89,7 +89,7 @@ public class VistaPartida extends Vista{
 			  	caselles.get(ar.get(0)*4 + ar.get(1)).setText(ar.get(2).toString());
 			  }
 			}
-		 */
+		 
 	}
 	
 	public void actualitza(ArrayList<Integer> caselles){

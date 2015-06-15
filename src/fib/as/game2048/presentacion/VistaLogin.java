@@ -65,25 +65,25 @@ public class VistaLogin extends Vista{
 		win.show();
 	}
 	public void okPressed(){
-		/*try{
+		try{
 			login.login(textf.getText(), p.getText());
 			  cv.okPressed();
 		}
-		catch(Exception ex){
+		catch(ExceptioLoginIncorrecte ex){
 			errorUserName(ex.getMessage());
 		}
 		
-		 catch(Exception ex){
+		 catch(ExcepcioPwdIncorrecte ex){
 		 		errorPassword(ex.getMessage());
 		 }
-		 catch(Exception ex){
+		 catch(ExcepcioNoJugador ex){
 		 		errorNoJugador(ex.getMessage());
 		 }
 		 catch(Exception ex){
 		 		error(ex.getMessage());
 		 }
 		 
-		 */
+		 
 	}
 	
 	public void addOKListener(VistaLogin v){

@@ -10,18 +10,17 @@ public class ControladorVista {
 	private VistaRanking vistaranking;
 	private VistaResumen vistaresumen;
 	
-	/*
-	 * private CtrlCasUsLogin login
-	 * private CtrlCasUsJugarPartida partida
-	 * private CtrlCasUsRanking ranking
-	 * 
-	 */
+	
+	  private CtrlCasUsLogin login
+	  private CtrlCasUsJugarPartida partida
+	  private CtrlCasUsRanking ranking
+	 
 	
 	public ControladorVista(){
-		/*
+		
 		login = CtrlDataFactory.getCtrlCasUsLogin();
 		partida = CtrlDataFactory.getCtrlPartida();
-		ranking = CtrlDataFactory.getCtrlCasUsRanking(); */
+		ranking = CtrlDataFactory.getCtrlCasUsRanking(); 
 	}
 
 	public void inicialitzar(){
@@ -43,18 +42,18 @@ public class ControladorVista {
 	}
 	
 	public void keyPressed(String dir){
-		//set = controladorCasDUS.ferMoviment(dir);
-		//vistapartida.actualitza(set);
+		/*set = controladorCasDUS.ferMoviment(dir);
+		vistapartida.actualitza(set);*/
 	}
 	
 	public void rankPressed(){
-		//ArrayList<TuplesPersPunt> r = ranking.consultarRanking();
-		//ArrayList<String> rannks = new ArrayList<String>();
-		/*for(TuplesPersPunt t : r){
+		ArrayList<TuplesPersPunt> r = ranking.consultarRanking();
+		ArrayList<String> rannks = new ArrayList<String>();
+		for(TuplesPersPunt t : r){
 			rannks.add(r.getNom()+": "+r.getPunt());
-		}*/
-		//iniciarRanking(rannks);
-		iniciarRanking();//borrar al descomentar las otras
+		}
+		iniciarRanking(rannks);
+		
 		
 	}
 	
