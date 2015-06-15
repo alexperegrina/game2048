@@ -10,7 +10,7 @@ import org.hibernate.service.ServiceRegistry;
 
 public class CtrlJugador {
 	
-	public Jugador getJugador(String userN) throws ExcepcioNoJugador
+	public Jugador getJugador(String userN)
 	{
 		SessionFactory sessionFactory;
 		Configuration configuration = new Configuration();
@@ -22,8 +22,6 @@ public class CtrlJugador {
 		session.beginTransaction();
 		
 		Jugador j = (Jugador)session.load(Jugador.class, userN);
-		
-		if(j.getNom() == null) throw new ExcepcioNoJugador();
 		
 		session.close();
 		

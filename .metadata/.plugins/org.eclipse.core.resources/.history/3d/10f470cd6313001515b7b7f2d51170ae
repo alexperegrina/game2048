@@ -23,7 +23,7 @@ public class CtrlJugador {
 		
 		Jugador j = (Jugador)session.load(Jugador.class, userN);
 		
-		if(j.getNom() == null) throw new ExcepcioNoJugador();
+		if(j.getNom() == null) throws new ExcepcioNoJugador();
 		
 		session.close();
 		

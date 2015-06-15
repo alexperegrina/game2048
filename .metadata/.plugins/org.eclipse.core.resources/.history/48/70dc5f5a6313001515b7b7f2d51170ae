@@ -8,8 +8,6 @@ public class CtrlCasUsLogin extends CtrlCasUs{
 		CtrlUsuariRegistrat CUR = CtrlDataFactory.getCtrlUsuarisRegistrats();
 		UsuariRegistrat U = CUR.getUsuariRegistrat(userN);
 		if(!U.isPassword(passwd)) throw new ExcepcioPwdIncorrecte();
-		CtrlJugador CJ = CtrlDataFactory.getCtrlJugador();
-		CJ.getJugador(userN);
 		return b;
 	}
 }
