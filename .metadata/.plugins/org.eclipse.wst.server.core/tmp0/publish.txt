@@ -1,3 +1,2 @@
 #Tomcat publish data
-#Mon Jun 15 00:21:12 CEST 2015
-org.eclipse.jst.j2ee.server\:game2048=WEB-INF/lib/game2048.jar
+#Mon Jun 15 15:48:33 CEST 2015
