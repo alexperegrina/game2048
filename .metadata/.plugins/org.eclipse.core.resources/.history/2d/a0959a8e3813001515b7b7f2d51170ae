@@ -1,0 +1,21 @@
+package fib.as.game2048;
+
+import java.util.ArrayList;
+
+public class EstrategiaPuntuacio extends IEstrategiaRanking{
+	
+	public ArrayList<Object> getRanking(ArrayList<Jugador> jugadors)
+	{
+		Integer i = 0;
+		ArrayList<TuplePersPunt> ranking = new ArrayList<TuplePersPunt>();
+		while(i<jugadors.size())
+		{
+			TuplePersPunt tupla = new TuplePersPunt();
+			tupla.setPunt(jugadors.get(i).getMillorPuntuacio());
+			tupla.setNom(jugadors.get(i).getNom());
+			ranking.add(tupla);
+			++i;
+		}
+		return ranking;
+	}
+}

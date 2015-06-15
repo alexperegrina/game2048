@@ -1,0 +1,11 @@
+package fib.as.game2048;
+
+public class CtrlCasUsLogin extends CtrlCasUs{
+	
+	public void login(String userN, String passwd)
+	{
+		CtrlUsuariRegistrat CUR = CtrlDataFactory.getCtrlUsuarisRegistrats();
+		UsuariRegistrat U = CUR.get(userN);
+		if(!U.isPassword(passwd)) throw new ExcepcioPwdIncorrecte();
+	}
+}

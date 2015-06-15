@@ -6,11 +6,22 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
-public class CtrlCasUsJugarPartida {
+public class CtrlCasUsJugarPartida extends CtrlCasUs {
 	
 	private Partida P;
 	
 	private ArrayList<Casella> caselles;
+	
+	private CtrlDataFactory CDF;
+	private Jugador j;
+	
+	public void ferAutenficicacio(String UserN, String passwd)
+	{
+		CJ = CDF.getCtrlJugador();
+		CCL = CDF.getCtrlCasUsLogin();
+		CCL.login(userN,passwd);
+		j =CJ.getJugador(userN);
+	}
 	
 	public void crearPartida(Jugador jugador)
 	{
@@ -18,7 +29,8 @@ public class CtrlCasUsJugarPartida {
 		Integer id = joc.getIdPartida();
 		Integer id1 = joc.incrementarId();
 		P = new Partida(jugador,id);
-		caselles = P.getCaselles(); P.
+		P.crearTaulell();
+		caselles = P.getCasellesValor();
 		EstrategiaPuntuacio E;
 		joc.assignarEstrategia(E);
 		jugador.assignarPartidaActual(P);
@@ -141,6 +153,31 @@ public class CtrlCasUsJugarPartida {
 			++i;
 		}
 		return guanyada;
+	}
+	
+	public ArrayList getCasellesLliures()
+	{
+		/*
+		 * Creo que deberia estar en Partida.Si se cambia
+		 * hay que cambiar preparaSeguentMoviment
+		 * */
+		ArrayList<Casella> conj = new ArrayList<Casella>();
+		ArrayList<Casella> C = P.getCaselles();
+		Integer i = 0;
+		while(i<C.size())
+		{
+			if(C.get(i).esBuida()) conj.add(C.get(i));
+			++i;
+		}
+		return conj;
+	}
+	
+	public void preparaSeguentMoviment()
+	{
+		//no me gusta mucho como esta montada
+		ArrayList<Casella> C = getCasellesLliures();
+		Integer num = randInt(1,2)*2;
+		C.get(0).setNumero(num);
 	}
 	
 }

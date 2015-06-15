@@ -23,5 +23,6 @@
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="fib.as.game2048.CtrlCasUsJugarPartida.MyComparator"/>
 <fullyQualifiedTypeName name="fib.as.game2048.CtrlCasUsJugarPartida.ordenaporfila"/>
+<fullyQualifiedTypeName name="fib.as.game2048.Casella"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

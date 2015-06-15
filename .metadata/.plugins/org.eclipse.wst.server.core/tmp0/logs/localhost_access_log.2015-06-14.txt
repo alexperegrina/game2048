@@ -1,0 +1,6 @@
+127.0.0.1 - - [14/Jun/2015:22:34:33 +0200] "GET / HTTP/1.1" 404 961
+0:0:0:0:0:0:0:1 - - [14/Jun/2015:22:40:39 +0200] "GET /SvMissatgeria/axis2-web/index.jsp HTTP/1.1" 200 3479
+0:0:0:0:0:0:0:1 - - [14/Jun/2015:22:40:39 +0200] "GET /SvMissatgeria/axis2-web/css/axis-style.css HTTP/1.1" 200 1587
+0:0:0:0:0:0:0:1 - - [14/Jun/2015:22:40:39 +0200] "GET /SvMissatgeria/axis2-web/images/asf-logo.gif HTTP/1.1" 200 5866
+0:0:0:0:0:0:0:1 - - [14/Jun/2015:22:40:40 +0200] "GET /SvMissatgeria/axis2-web/images/axis_l.jpg HTTP/1.1" 200 12340
+0:0:0:0:0:0:0:1 - - [14/Jun/2015:22:41:32 +0200] "GET /SvMissatgeria/services/listServices HTTP/1.1" 200 3858
