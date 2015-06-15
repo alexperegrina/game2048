@@ -1,0 +1,9 @@
+package fib.as.game2048;
+
+public class AAdapMissatgeria {
+	
+	public void enviarMissatge(Integer id, Integer punt, String mail)
+	{
+		AdapMissatgeria.
+	}
+}

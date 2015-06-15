@@ -15,9 +15,9 @@ public class AdapMissatgeriaClient {
 		{
 			AdapMissatgeriaStub AMS = new AdapMissatgeriaStub();
 			EnviarMissatge m = new EnviarMissatge();
-			m.setId(0);
-			m.setMail("hola@");
-			m.setPunt(100);
+			m.setId(Integer.parseInt(args[0]));
+			m.setMail(args[1]);
+			m.setPunt(Integer.parseInt(args[2]));
 			AMS.enviarMissatge(m);
 			System.out.println("id: "+m.getId());
 			System.out.println("mail: "+m.getMail());
