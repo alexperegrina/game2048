@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public final class Joc2048 {
 	
-	private static Integer idPartida;
+	private static Integer idPartida = 1;
 	private static IEstrategiaRanking ranking;
 	
 	public static Integer getIdPartida() {

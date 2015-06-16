@@ -14,7 +14,7 @@ public class CtrlCasUsJugarPartida extends CtrlCasUs {
 	
 	private Jugador jugador;
 	
-	public void ferAutenficicacio(String userN, String passwd) throws ExcepcioPwdIncorrecte
+	public void ferAutenficicacio(String userN, String passwd) throws ExcepcioPwdIncorrecte, ExcepcioLoginIncorrecte, ExcepcioNoJugador
 	{
 		CtrlJugador CJ = CtrlDataFactory.getCtrlJugador();
 		CtrlCasUsLogin CCL = CtrlDataFactory.getCtrlCasUsLogin();
@@ -30,7 +30,7 @@ public class CtrlCasUsJugarPartida extends CtrlCasUs {
 		P = new Partida(jugador,id);
 		P.crearTaulell();
 		caselles = P.getCasellesValor();
-		EstrategiaPuntuacio E;
+		EstrategiaPuntuacio E = new EstrategiaPuntuacio();
 		Joc2048.assignarEstrategia(E);
 		jugador.assignarPartidaActual(P);
 		Integer points = jugador.getMillorPuntuacio();
@@ -38,6 +38,7 @@ public class CtrlCasUsJugarPartida extends CtrlCasUs {
 		ret.add(0);
 		ret.add(points);
 		ret.add(caselles);
+		return ret;
 	}
 	
 	public ArrayList<TuplePersPunt> obtenirRanking() throws ExcepcioNoHiHaPartida
