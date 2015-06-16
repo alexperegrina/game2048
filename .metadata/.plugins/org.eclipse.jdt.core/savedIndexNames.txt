@@ -15,14 +15,14 @@ INDEX VERSION 1.127+D:\Entorno Eclipse\2048git\game2048\.metadata\.plugins\org.e
 3196677085.index
 11625921.index
 3566340197.index
-1820701598.index
 2254693235.index
+1820701598.index
 1840176046.index
-368757396.index
-3669786461.index
 924985868.index
-1292816912.index
+368757396.index
 2481355036.index
+1292816912.index
+3669786461.index
 1246203559.index
 69426063.index
 2303192393.index
@@ -42,8 +42,8 @@ INDEX VERSION 1.127+D:\Entorno Eclipse\2048git\game2048\.metadata\.plugins\org.e
 2608145492.index
 2227513532.index
 3624802364.index
-3410253263.index
 3682675155.index
+3410253263.index
 2508262442.index
 4275295303.index
 2288688875.index
@@ -58,6 +58,7 @@ INDEX VERSION 1.127+D:\Entorno Eclipse\2048git\game2048\.metadata\.plugins\org.e
 106295496.index
 2251204867.index
 2046136404.index
+2371433045.index
 2466025470.index
 1981786602.index
 1896129790.index
